@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container_create {
+    background-image: url('../image/doggy.jpg');
+    background-size: cover;
+    min-height: 650px;
+}
+
+.main_create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 550px;
+    padding-top: 25px;
+    background: linear-gradient(#928267, #998c13, #77a4be);
+    min-height: 450px;
+    width: 500px;
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    font-size: larger;
+    border: none;
+    box-shadow: rgb(8, 8, 7) 5px 1px 12px;
+    padding-left: 15px;
+}
+
+.err {
+    color: rgb(138, 15, 15);
+    font-family: Georgia;
+    font-weight: 150;
+    font-size: medium;
+    font-style: oblique;
+}
+
+.formy input {
+    border-radius: 5px;
+    height: 25px;
+    border: 1px solid rgb(75, 75, 82);
+    background-color: rgb(116, 116, 128);
+    margin-left: 1px;
+}
+
+input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+
+.temp select {
+    background-color:  rgb(116, 116, 128);
+    height: 25px;
+    width: 200px;
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+}
+.temp5 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: 0px;
+    width: 400px;
+}
+
+
+.tempSsh {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
+
+.tempSsh option {
+    background-color: rgba(255, 187, 0, 0.514);
+    cursor: pointer;
+    width: 30px;
+    border-radius: 5px;
+    border: transparent;
+    
+}
+
+.tempSsh option:hover {
+    background-color: rgba(255, 0, 0, 0.959);
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+.create {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.create button {
+    border: none;
+    border-radius: 12px;
+    width: 65px;
+    height: 20px;
+    background-color: rgb(116, 116, 128);
+    margin: 45px;
+}
+
+.create button:hover {
+    background-color: brown;
+    border: greenyellow 1px solid;
+}
+
+
+.btn_land {
+    display: flex;
+    height: 35px;
+    width: 200px;
+    border-radius: 12px;
+    padding-left: 35px;
+    margin-left: 525px;
+   margin-top: 85px;
+   padding-bottom: 85px;
+  
+}
+
+.btn_land button {
+    height: 35px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 12px;
+    background: -webkit-linear-gradient(left top,  rgb(135, 141, 241),rgb(253, 176, 9));
+    border: none;
+    margin-top: px;
+}
+    
+
+ .btn_land button:hover{
+    box-shadow: rgb(204, 201, 201) 10px 10px 15px; 
+   border: lightblue 1px solid ;
+ }
+
+ .life_span2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ 
+ }
+ .life_span2 input{
+width: 50px;
+margin-left: 25px;
+margin-left: 20px;
+ }
+
+

@@ -1,0 +1,76 @@
+.container_P ul {
+    display: flex;
+    justify-content: center;
+}
+
+.container_P ul button {
+    margin-top: 50px;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    /* background-color: rgb(216, 167, 5); */
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px 0px 5px 0px;
+    /*margin-bottom: 35px;*/
+    font-weight: bold;
+    background: linear-gradient(to left, #229244, #FFA420) ;
+    transition: 1s;
+}
+
+.container_P ul button:hover {
+    background: linear-gradient(to right, #60e8ec, #FFA420) ;
+    border-radius: 0px 10px 0px 10px;
+   
+}
+
+.move {
+    display: flex;
+    justify-content: center;
+    gap: 950px;
+    margin-top: 1px;
+  
+}
+
+.move button {
+    background: linear-gradient(to left, #229244, #FFA420) ;
+    width: 100px;
+    height: 25px;
+    border: transparent;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    
+}
+
+.move button:hover {
+    background: linear-gradient(to right, #229244, #FFA420) ;
+    border: lightblue 1px solid;
+    color: rgb(0, 0, 0);
+    transition: 3s;
+}
+
+.container_P ul button .move {
+    height: 20px;
+    width: 80px;
+    border-radius: 5px;
+}
+
+.current {
+    /*border: lightblue 1px solid;*/
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    background-color: #12a31286;
+    padding-left: 15px;
+    padding-top: 5px;
+    border-radius: 12px;
+}
+
+
+.container_P ul .btn_point {
+    background-color: #229244;
+    color: white;
+
+}

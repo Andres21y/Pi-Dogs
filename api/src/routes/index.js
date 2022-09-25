@@ -5,8 +5,14 @@ const { Router } = require('express');
 
 const router = Router();
 
+const breedRouter = require('./raceRouter')
+const temRouter = require('./temRouter')
+
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.use('/dogs', breedRouter)
+router.use('/temperaments', temRouter)
 
 module.exports = router;
