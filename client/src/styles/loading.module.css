@@ -1,4 +1,4 @@
-.main_load{
+.main_load {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 
-.loading{
+.loading {
     background-size: cover;
     color: white;
     font-weight: bold;
@@ -22,34 +22,36 @@
 }
 
 
-.ring{
+.loader {
     position: absolute;
     width: 200px;
     height: 200px;
-   border-style: groove;
-border-color:rgb(13, 14, 12);
+    border-style: groove;
+    border-color: rgb(128, 255, 0);
     border-radius: 50%;
-    animation: ring 2s linear infinite;
+    animation: load 2s linear infinite;
 }
 
 
-@keyframes ring {
-    10%{
-       transform: rotate(0deg); 
-       box-shadow: 4px 4px 2px limegreen;
+@keyframes load {
+    10% {
+        transform: rotate(0deg);
+        box-shadow: 4px 4px 2px limegreen;
     }
-    50%{
-        transform: rotate(190deg); 
-        box-shadow: 4px 4px 2px rgb(0, 191, 255);
+
+    50% {
+        transform: rotate(190deg);
+        box-shadow: 4px 4px 2px rgb(0, 0, 0);
     }
-    100%{
-        transform: rotate(360deg); 
-        box-shadow: 4px 4xp 2px #ff5e00;
+
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 4px 4xp 2px #ffa011;
     }
 }
 
 
-.ring::before{
+.ring::before {
     position: absolute;
     content: '';
     left: 0;
@@ -61,20 +63,20 @@ border-color:rgb(13, 14, 12);
 }
 
 
-.main_load span{
-    color: #1ea89d;
+.main_load span {
+    color: #000000;
     font-size: 20px;
     letter-spacing: 1px;
     line-height: 200px;
-    transition: 1s ;
+    transition: 1s;
     animation: span 3s infinite;
     text-transform: uppercase;
-margin-top: 2em;
+    margin-top: 2em;
 }
 
 
- @keyframes span {
-    50%{
+@keyframes span {
+    50% {
         animation-delay: 5s;
         font-weight: 400px;
         width: 200px;
@@ -82,23 +84,25 @@ margin-top: 2em;
         height: 200px;
         transition: 5s;
     }
-    50%{
+
+    50% {
         text-transform: lowercase;
         animation-delay: 5s;
         font-weight: 600px;
         color: rgb(0, 0, 0);
     }
-    50%{
+
+    50% {
         text-transform: lowercase;
         animation-delay: 5s;
         color: rgba(0, 45, 248, 0.158);
         font-weight: 900px;
         transition: 10s;
     }
-} 
+}
 
 
-img{
+img {
     width: 200px;
     height: 200px;
     border-radius: 50%;

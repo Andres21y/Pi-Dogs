@@ -9,7 +9,7 @@ import dog from '../image/black-dog.png'
 import blue from '../image/dog-blue.jpg'
 import illustration from '../image/illustration.jpg'
 import Loading from "../components/Loading";
-
+import logi from '../image/227.jpg'
 
 export default function Details() {
 
@@ -19,7 +19,7 @@ export default function Details() {
     let dispatch = useDispatch()
 
     const details = useSelector(state => state.details)
-    // console.log('soy el details', details);
+     console.log('soy el details', details);
 
     useEffect(() => {
         dispatch(getDetails(id))
@@ -28,8 +28,8 @@ export default function Details() {
         }
     }, [dispatch, id])
 
-    let temp = details.temperaments
-    //console.log('==/==/=>', temp);
+    let temp = details.temperaments !== null ? details.temperaments : ['has no temperament']
+
 
     function jurasic(val) {
         let data = val.map(e => {
@@ -43,8 +43,8 @@ export default function Details() {
         if (details.hasOwnProperty('created')) {
             return (
                 <div>
-                    <span> min <code>{details.min_Height}cm</code></span>&nbsp;&nbsp;
-                    &nbsp;<span> max <code>{details.max_Height}cm</code></span>
+                    <span><i>from</i>&nbsp;<code>{details.min_Height}&nbsp;cm</code></span>
+                    &nbsp;<i>to</i>&nbsp;<span><code>{details.max_Height} cm</code></span>
                 </div>
             )
 
@@ -52,16 +52,16 @@ export default function Details() {
             return (
                 details.min_Height === null || details.max_Height === null ?
                     <span>
-                        <code> min 0cm</code>
-                        <code> max 0cm</code>
+                        <code>min &nbsp; 0 &nbsp;cm</code>&nbsp;<i>to</i> &nbsp;
+                        <code>max  &nbsp; 0  &nbsp;cm</code>
                     </span>
                     :
                     <div>
                         <span>
-                            <code> min {details.min_Height}cm</code>
-                        </span>&nbsp;&nbsp;
+                        <i>from</i><code>&nbsp;{details.min_Height}&nbsp;</code>
+                        </span>&nbsp;<i>to</i>&nbsp;
                         <span>
-                            <code> max {details.max_Height}cm</code>
+                            <code>&nbsp;{details.max_Height}&nbsp;cm</code>
                         </span>
                     </div>
             )
@@ -78,19 +78,33 @@ export default function Details() {
 
     return (
         <div className={styles.detail}>
-            <div>
-                <h1>Breeds Details</h1>
-            </div>
+            <nav>
+                <div className={styles.h3}>
+                    <h2>Wellcome to Details</h2>
+                </div><br />
+                <div className={styles.btn_container}>
+                    <div className={styles.btn_home_d}>
+                        <Link to={'/Home'}>
+                         <button id="re" ><i class="bi bi-house-fill" />&nbsp; Home</button>
+                        </Link>
+                    </div>
+                    <div className={styles.btn_create}>
+                        <Link to={'/Create'} >
+                            <button className={styles.btn_create}>Create &nbsp;<i class="bi bi-box-arrow-right"></i></button>
+                        </Link>
+                    </div>
+                </div>
+            </nav>
+
             <div className={styles.card_container}>
-                <div>
                     {
                         details.hasOwnProperty('name') ?
                             <div className={styles.container_de}>
-                                <div className={styles.card_d}>
+                                <div className={styles.cardw}>
                                     <div className={styles.card_iw}>
                                         <img src={details.image ? details.image : dbImage[random]} alt='no igame now' />
                                     </div>
-                                    <div className={styles.name}>
+                                    <div className={styles.named}>
                                         <h2>{details.name}</h2>
                                     </div>
                                 </div>
@@ -98,25 +112,21 @@ export default function Details() {
                                 <div className={styles.temp}>
                                     {
                                         <div className={styles.container_det}>
-                                            <h4>Height </h4>
-                                            <div>
-                                                <span>
-                                                    <code>{data()}</code>
-                                                </span>
-                                            </div>
+                                            <h4>Height:</h4>
+                                                <code>{data()}</code>                                        
 
-                                            <h4>Weight</h4>
+                                            <h4>Weight:</h4>
                                             <div>
-                                                <code>min {details.min_Weight}kg</code>&nbsp;&nbsp;&nbsp;
-                                                <code>max {details.max_Weight}kg</code>
+                                                <code><i>from</i>&nbsp;{details.min_Weight}&nbsp;kg</code> &nbsp;<i>to</i> &nbsp;
+                                                <code>{details.max_Weight}&nbsp;kg</code>
                                             </div>
-
-                                            <h4>Life_span </h4>
+                                            {/* <i class="bi bi-activity"></i> */}
+                                            <h4> Life_span </h4>
                                             <div>
                                                 {
                                                     details.hasOwnProperty('created') ?
                                                         <span>
-                                                            <code>{details.life_span_min}</code>&nbsp; - &nbsp;
+                                                            <code>{details.life_span_min}</code>&nbsp; <i>to</i> &nbsp;
                                                             <code>{details.life_span_max} years</code>
                                                         </span>
                                                         :
@@ -127,10 +137,10 @@ export default function Details() {
                                             </div>
 
                                             <h4>Temperaments </h4>
-                                            <div className={styles.temp1}>
+                                            <div className={styles.temperaments_o}>
                                                 {
                                                     jurasic(temp).map(e => {
-                                                        return (<option key={`2${e}`}>*{e.toString()}</option>)
+                                                        return (<option key={`2${e}`}>*{e.toString()}&nbsp;</option>)
                                                     })
                                                 }
                                             </div>
@@ -144,19 +154,11 @@ export default function Details() {
                                 <Loading />
                             </div>
                     }
-                </div>
                 <div>
 
                 </div>
             </div>
-            <div className={styles.btn_container}>
-                <div className={styles.btn_land}>
-                    <Link to={'/Home'} ><button>Home </button></Link>
-                </div>
-                <div className={styles.btn_land}>
-                    <Link to={'/Create'} ><button className={styles.btn_create}>Create </button></Link>
-                </div>
-            </div>
+
         </div>
     )
 }

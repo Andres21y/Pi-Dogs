@@ -2,25 +2,36 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-
+    width: 100%;
 }
 
 .filter_main select {
     height: 25px;
     border-radius: 5px;
     width: 130px;
-    background: linear-gradient(to left, #EC7C26, #FFA420) ;
+    background-color: rgba(79, 88, 128, 0.69);
     transition: 1s;
 }
-.create button{
+
+.create button {
     height: 25px;
     border-radius: 5px;
     width: 130px;
-    background: linear-gradient(to left, #EC7C26, #FFA420) ;
+    background-color: rgba(79, 88, 128, 0.69);
     border: none;
 }
- 
-.btn_create:hover{
-    background-color:transparent;
-    border: 3px solid rgba(247, 168, 0, 0.829);
+
+.btn_create:hover {
+    background-color: rgba(34, 49, 124, 0.69);
+}
+
+
+@media only screen and (max-width:600px) {
+    .filter_main {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
 }

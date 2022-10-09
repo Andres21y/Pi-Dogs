@@ -3,39 +3,65 @@
     margin: 0;
 }
 
-.container_create {
-    background-image: url('../image/doggy.jpg');
-    background-size: cover;
-    min-height: 650px;
+/*==================NAV BAR=======================*/
+nav {
+    background-color: rgb(79, 88, 128);
+    min-height: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding-left: 10px;
 }
+
+.h3 {
+    display: flex;
+    height: 40px;
+    min-width: 200px;
+    padding-top: 6px;
+    text-shadow: rgb(0, 0, 0) 10px 1px 12px;
+    text-transform: uppercase;
+    color: rgb(28, 54, 59);
+}
+
+
+.container_create {
+    background: linear-gradient( #06649a, #ffffff, #06649a);
+    min-height: 750px;
+    width: 100%;
+}
+
 
 .main_create {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 5em;
 }
-
+/*========================FORM ===================*/
 .formy {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 550px;
     padding-top: 25px;
-    background: linear-gradient(#928267, #998c13, #77a4be);
+    padding-left: 15px;
+    background: rgba(33, 22, 97, 0.781);  
     min-height: 450px;
-    width: 500px;
+    width: 40%;
     border-radius: 12px;
-    color: rgb(0, 0, 0);
     font-size: larger;
     border: none;
+    color: rgb(241, 241, 241);
     box-shadow: rgb(8, 8, 7) 5px 1px 12px;
-    padding-left: 15px;
+    font-weight: bold;
 }
-
+ code{
+    color: rgb(255, 255, 255);
+ }
 .err {
-    color: rgb(138, 15, 15);
+    color: rgba(255, 0, 0, 0.678);
     font-family: Georgia;
     font-weight: 150;
     font-size: medium;
@@ -45,24 +71,23 @@
 .formy input {
     border-radius: 5px;
     height: 25px;
-    border: 1px solid rgb(75, 75, 82);
-    background-color: rgb(116, 116, 128);
+    border: 0.2px solid black;
+    background-color: rgb(122, 122, 168);
     margin-left: 1px;
 }
-
-input::placeholder {
-    color: rgb(0, 0, 0);
-}
-
-
 .temp select {
-    background-color:  rgb(116, 116, 128);
+    background-color: rgb(98, 98, 168);
+    border: 1px solid black;
     height: 25px;
     width: 200px;
     border-radius: 12px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
-.temp5 {
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.616);
+}
+ .temp5 {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -70,27 +95,24 @@ input::placeholder {
     width: 400px;
 }
 
-
 .tempSsh {
     display: flex;
     flex-wrap: wrap;
     padding-left: 15px;
-}
+} 
 
 .tempSsh option {
-    background-color: rgba(255, 187, 0, 0.514);
+    background-color: rgba(26, 255, 0, 0.514);
     cursor: pointer;
     width: 30px;
     border-radius: 5px;
     border: transparent;
-    
 }
 
 .tempSsh option:hover {
     background-color: rgba(255, 0, 0, 0.959);
     cursor: pointer;
     border-radius: 5px;
-    
 }
 
 .create {
@@ -102,12 +124,13 @@ input::placeholder {
 }
 
 .create button {
-    border: none;
+    background-color: rgb(122, 122, 168);
+    border: 0.2px solid black;
     border-radius: 12px;
     width: 65px;
-    height: 20px;
-    background-color: rgb(116, 116, 128);
+    height: 25px;
     margin: 45px;
+    color: white;
 }
 
 .create button:hover {
@@ -115,45 +138,69 @@ input::placeholder {
     border: greenyellow 1px solid;
 }
 
-
 .btn_land {
+    background: transparent;
+    margin-top: 15px;
+    margin-right: 250px;
     display: flex;
-    height: 35px;
-    width: 200px;
-    border-radius: 12px;
-    padding-left: 35px;
-    margin-left: 525px;
-   margin-top: 85px;
-   padding-bottom: 85px;
-  
 }
 
 .btn_land button {
     height: 35px;
     width: 200px;
     cursor: pointer;
-    border-radius: 12px;
-    background: -webkit-linear-gradient(left top,  rgb(135, 141, 241),rgb(253, 176, 9));
+    background: transparent;
     border: none;
-    margin-top: px;
 }
-    
 
- .btn_land button:hover{
-    box-shadow: rgb(204, 201, 201) 10px 10px 15px; 
-   border: lightblue 1px solid ;
- }
 
- .life_span2 {
+.btn_land button:hover {
+    text-decoration: aqua underline;
+ text-shadow: aqua 10px 10px 12px;
+}
+
+.life_span2 {
     display: flex;
     flex-direction: row;
     align-items: center;
- 
- }
- .life_span2 input{
-width: 50px;
-margin-left: 25px;
-margin-left: 20px;
- }
+}
+
+.life_span2 input {
+    width: 50px;
+    margin-left: 25px;
+    margin-left: 20px;
+}
 
 
+/*-------------------------> icon */
+.container_icon {
+    display: flex;
+    padding: 15px;
+    margin-right: 10%;
+    cursor: pointer;
+}
+
+.container_icon :hover {
+    text-decoration: aqua underline;
+    text-shadow: rgb(32, 218, 178) 10px 1px 10px;
+    gap: 10px;
+}
+
+.container_icon i {
+    font-size: 20px;
+    color: #02f00a;
+}
+
+.container_icon button {
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .formy{
+        width: 80%;
+        margin-bottom: 30px;
+    }
+}

@@ -6,61 +6,18 @@
 .container_landing {
     background-image: url('../image/doggys.jpg');
     background-size: cover;
-    min-height: 850px;
+    min-height: 750px;
 }
 
-div h1 {
-    background: -webkit-linear-gradient(left top,  rgb(135, 141, 241),rgb(253, 176, 9));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Times New Roman', Times, serif;
-    background-attachment: fixed;
-    font-size: 50px;
-    font-size: 80px;
-    font-weight: bold;
-    padding-top: 1em;
-    padding-left: 90px;
+@media screen and (max-width: 600px) {
+   .container_landing{
+    width:100%;
+    background: rgb(118, 115, 170);
+   }
 }
 
-.btn_land {
-    display: flex;
-    height: 35px;
-    width: 200px;
-    border-radius: 12px;
-    margin-top: 350px;
-    padding-left: 35px;
-    margin-left: 5px;
-}
 
-.btn_land button {
-    height: 35px;
-    width: 200px;
-    cursor: pointer;
-    border-radius: 12px;
-    background: -webkit-linear-gradient(left top,  rgb(135, 141, 241),rgb(253, 176, 9));
-    border: none;
-    margin-top: px;
-    transition: 1s;
-    
-}
-    
- .btn_land button:hover{
-    box-shadow: rgb(204, 201, 201) 10px 10px 15px; 
-   border: lightblue 1px solid ;
- }
 
- .home_ciner{
-    display: flex;
-    justify-content: flex-end;
-    text-decoration: none;
-    margin-left: 25px;
-    text-decoration: none;
+ 
 
-}
 
-.home_ciner p{
-    text-decoration: none;
-    color: coral;
-    padding-left: 40px;
-    text-decoration: none;
- }

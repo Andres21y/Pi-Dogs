@@ -3,17 +3,18 @@ import styles from '../styles/paginated.module.css';
 
 export default function Paginated({ allBreeds, breedPage, upDater, currentPage, setCurrentPage }) {
 
-    
+
     let pages = []
     for (let i = 1; i <= Math.ceil(allBreeds.length / breedPage); i++) {
         pages.push(i)
     }
-    
+
     function handleChange(e) {
         if (e.target.name === 'prev') {
             breedPage === 1 ? upDater(1) :
                 upDater(currentPage - 1)
-            e.target.disabled = false
+                let activation = document.getElementById('prev')
+                activation.disabled = false
         }
 
 
@@ -27,18 +28,16 @@ export default function Paginated({ allBreeds, breedPage, upDater, currentPage, 
         <div>
             <div className={styles.container_P}>
                 <ul >
+                <button className={styles.prev} name="prev"  id="prev"   disabled={currentPage === 1 ? true : false} onClick={handleChange}>prev</button>
                     {
                         pages.length && pages.map(num => {
                             return (
-                                <button key={num} className={currentPage === num ? styles.btn_point : null } onClick={()=> upDater(num)} >{num}</button>
+                                <button key={num} className={currentPage === num && styles.btn_point} onClick={() => upDater(num)} >{num}</button>
                             )
                         })
                     }
+                <button className={styles.next} name="next" id="next" disabled={currentPage === pages.length ? true : false} onClick={handleChange}>next</button>
                 </ul>
-            </div>
-            <div className={styles.move}>
-                <button id="prev" name='prev' disabled={currentPage === 1 ? true : false} onClick={e => handleChange(e)} value={currentPage - 1} > Prev </button>
-                <button id="next" name='next' disabled={currentPage === pages.length ? true : false} onClick={e => handleChange(e)} > Next </button>
             </div>
         </div>
     )

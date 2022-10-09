@@ -8,6 +8,7 @@ export const FILTER_TEMP = 'FILTER_TEMP';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 export const ORDER_BY_BREEDS = 'ORDER_BY_BREEDS';
+export const SET_STATE = 'SET_STATE';
 
 
 export const getBreeds = () => {
@@ -23,6 +24,8 @@ export const getBreeds = () => {
         }
     }
 }
+
+
 export const resetDetail = () => {
     console.log('llegue');
             return ({
@@ -30,22 +33,9 @@ export const resetDetail = () => {
                 payload:{}
             })
 }
-// export const getBreeds = () => {
-//     return async function (dispatch) {
-//         return await fetch('http://localhost:3001/api/dogs')
-//             .then(response => response.json())
-//             .then(data =>
-//                 dispatch({
-//                     type: GET_BREEDS,
-//                     payload: data
-//                 })
-//             )
 
-//     }
-// }
 //=====================================================================================================================
 export const getBreedsName = (name) => {
-    console.log('////>////>',name);
     return async function (dispatch) {
         try {
             let info = await axios.get(`http://localhost:3001/api/dogs/?name=${name}`)
@@ -58,33 +48,20 @@ export const getBreedsName = (name) => {
         }
     }
 }
-// export const getBreedsName = (name) => {
-//     return async function (dispatch) {
-//         return await fetch(`http://localhost:3001/api/dogs/?name=${name}`)
-//             .then(response => response.json())
-//             .then(data =>
-//                 dispatch({
-//                     type: GET_BREEDS_NAME,
-//                     payload: data
-//                 })
-//             )
-
-//     }
-// }
-//=====================================================================================================================
-// export const getTemperaments = (name) => {
-//     return async function (dispatch) {
-//         return await fetch(`http://localhost:3001/api/temperaments`)
-//             .then(response => response.json())
-//             .then(data =>
-//                 dispatch({
-//                     type: GET_TEMPERAMENTS,
-//                     payload: data
-//                 })
-//             )
-
-//     }
-// }
+//========================================setState==========================================
+export const setState = (payload) => {
+    return async function (dispatch) {
+        try {
+            return dispatch({
+                type: SET_STATE,
+                payload
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+//=====================================================================================================================  
 export const getTemperaments = () => {
     return async function (dispatch) {
         try {
@@ -113,13 +90,6 @@ export const postBreed = (payload) => {
         }
     }
 }
-// export const postBreed = (payload) => {
-//     console.log('soy barca', payload);
-//     return async function (dispatch) {
-//         return await fetch(`http://localhost:3001/api/dogs`, payload)
-
-//     }
-// }
 
 //=====================================================================================================================
 
@@ -156,6 +126,7 @@ export function orderName(payload){
         payload
     }
 }
+//=========================================================================================================
 
 export function orderWeight(payload){
     return{
@@ -163,6 +134,7 @@ export function orderWeight(payload){
         payload
     }
 }
+//=========================================================================================================
 export function orderBreeds(payload){
     return{
         type:ORDER_BY_BREEDS,

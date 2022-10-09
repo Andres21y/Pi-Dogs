@@ -6,9 +6,9 @@ const getTemp = async (req, res, next)=>{
     try {
         let apiInfo = await axios.get(`${API_BREEDS}`)
         let result = await apiInfo.data.map(e=>e.temperament).toString().split(',')
-        let data = await result.map(e => e.trim())
+        let data = await result.filter(e => e || e.name !== undefined  &&  e.trim())
 
-        await data.map(e=>{
+        await data.filter(e=>{
             Temperament.findOrCreate({
                 where:{
                     name:e

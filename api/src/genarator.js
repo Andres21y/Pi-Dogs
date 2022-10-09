@@ -58,7 +58,13 @@ const allInfo = async () => {
     try {
         let api = await apiInfo()
         let db = await dbInfo()
-        return [...db, ...api]
+
+        if (api) {
+            return [...db, ...api]
+        }else{
+
+            return db
+        }
     } catch (error) {
         console.log(error);
     }

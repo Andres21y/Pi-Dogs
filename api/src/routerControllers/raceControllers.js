@@ -1,5 +1,5 @@
 const { Breed, Temperament } = require('../db')
-const { Sequelize } = require('sequelize')
+const { Sequelize, Model } = require('sequelize')
 const { allInfo } = require('../genarator')
 
 
@@ -10,10 +10,10 @@ const getInfo = async (req, res, next) => {
     const allDogs = await allInfo()
     try {
         if (!name) {
-            res.send(allDogs)
+            res.send(allDogs).status(200)
         } else {
             let allRaces = allDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()))
-            allRaces.length > 0 ? res.send(allRaces) : res.json({ message: 'no dogs to show' })
+            allRaces.length > 0 ? res.send(allRaces).status(200) : res.status(200)
         }
     } catch (error) {
         next(error);
@@ -51,27 +51,29 @@ const getInfoId = async (req, res, next) => {
 }
 
 const createRace = async (req, res, next) => {
-    const { name, min_Height,
-        max_Height, min_Weight,
-        max_Weight, life_span_max,
-        life_span_min, temperament } = req.body
-    console.log('===>body', req.body);
+    const { name, min_Height, max_Height,
+        min_Weight, max_Weight, life_span_max,
+        life_span_min, temperament
+    } = req.body
+
     try {
         if (!name || !min_Height || !max_Height || !min_Weight || !max_Weight || !life_span_max || !life_span_min) {
             res.json({ message: 'please missing information is require' })
         } else {
             let verify = await Breed.findOne({
                 where: {
-                    name: { [Sequelize.Op.iLike]: '%${name}%' }
+                    name: { [Sequelize.Op.iLike]: `%${name}%` }
                 }
             })
+
+            console.log('=/>', verify);
 
             if (verify) {
                 res.json({ message: 'this dog has alredy been create' })
             } else {
 
                 const newBreed = await Breed.create({
-                    name,
+                    name: name,
                     min_Height: Number(min_Height),
                     max_Height: Number(max_Height),
                     min_Weight: Number(min_Weight),
@@ -85,7 +87,7 @@ const createRace = async (req, res, next) => {
                     }
                 })
                 newBreed.addTemperament(temp)
-                res.send('Procces sussesful')
+                res.json({ message: 'successful process' })
             }
         }
     } catch (error) {
@@ -95,27 +97,10 @@ const createRace = async (req, res, next) => {
 }
 
 
-const upDate = async (req, res, next) => {
-    const { id } = req.params
-
-    try {
-        const Dogs = Breed.findOne({
-            where: { id }
-        })
-
-        Dogs.upDate(req.body)
-
-        return res.json(Dogs)
-    } catch (error) {
-        next(error);
-    }
-}
 
 
 module.exports = {
     getInfo,
     createRace,
     getInfoId,
-    upDate
-
 }

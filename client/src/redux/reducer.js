@@ -6,7 +6,8 @@ import {
     FILTER_TEMP,
     ORDER_BY_NAME,
     ORDER_BY_WEIGHT,
-    ORDER_BY_BREEDS
+    ORDER_BY_BREEDS,
+    SET_STATE
 } from './actions'
 
 const initialState = {
@@ -44,12 +45,12 @@ export default function rootReducer(state = initialState, action) {
             }
         case ORDER_BY_NAME:
             const sort = action.payload === 'ascending' ?
-                state.allBreeds.sort(function (a, b) {
+                state.stateBreeds.sort(function (a, b) {
                     if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
                     if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
                     return 0
                 }) :
-                state.allBreeds.sort(function (a, b) {
+                state.stateBreeds.sort(function (a, b) {
                     if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
                     if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
                     return 0
@@ -60,7 +61,7 @@ export default function rootReducer(state = initialState, action) {
             }
         case ORDER_BY_WEIGHT:
             const sortWeight = action.payload === 'max' ?
-                state.allBreeds.sort(function (a, b) {
+                state.stateBreeds.sort(function (a, b) {
                     if (parseInt(a.max_Weight) > parseInt(b.max_Weight)) return -1;
                     if (parseInt(a.max_Weight) < parseInt(b.max_Weight)) return 1;
                     return 0
@@ -73,10 +74,10 @@ export default function rootReducer(state = initialState, action) {
                 })
             return {
                 ...state,
-                allBreeds: sortWeight
+                stateBreeds: sortWeight
             }
         case ORDER_BY_BREEDS:
-            let filtBreed = state.allBreeds;
+            let filtBreed = state.stateBreeds;
             let origin = action.payload === 'all' ? filtBreed :
                 action.payload === 'created' ? filtBreed.filter(element => element.created)
                     :
@@ -92,7 +93,7 @@ export default function rootReducer(state = initialState, action) {
             let infoDb = statebr.filter(e => {
                 if (e.hasOwnProperty('created')) {
                     let temper = e.temperaments.map(e => e.name)
-                    return temper.includes(action.payload); //devolver e para despues corregir
+                    return temper.includes(action.payload); 
 
                 }
             })
@@ -104,6 +105,11 @@ export default function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 stateBreeds: data
+            }
+           case SET_STATE:
+            return{
+                ...state,
+                allBreeds:action.payload
             }
 
         default:

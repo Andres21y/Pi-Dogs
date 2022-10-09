@@ -1,0 +1,37 @@
+.main{
+    background: blue;
+    height: 800px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.btn_about button{
+ color: white;
+    border: 1px solid white;
+    width: 200px;
+    margin-top: 35px;
+    border-radius: 12px;
+    height: 25px;
+}
+
+.btn_about :hover{
+    margin-top: 35px;
+    height: 25px;
+    border-radius: 12px;
+    background-color: aquamarine;
+    color: black;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    p span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding-left: 60px;
+}}

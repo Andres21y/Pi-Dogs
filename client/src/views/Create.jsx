@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { postBreed, getTemperaments } from "../redux/actions";
-import validate from '../components/validation'
-import styles from '../styles/create.module.css'
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { postBreed, getTemperaments, getBreeds } from "../redux/actions";
+import validate from '../components/validation';
+import styles from '../styles/create.module.css';
+import logi from '../image/227.jpg';
 
 export default function Create() {
-    
+
+    const allBreeds = useSelector(state => state.stateBreeds)
     let dispatch = useDispatch();
     let lisTemperaments = useSelector(state => state.temperament)
-
+    let lisTemperaments2 = lisTemperaments.filter(e => e.name !== Array && e.name)
 
     const [error, setError] = useState({
         name: '',
@@ -35,31 +36,22 @@ export default function Create() {
         temperament: []
     })
 
-    console.log('===>', input);
 
     function handleSet(e) {
         setInput({
             ...input,
-            [e.target.name]: e.target.name === 'life_span_max' || e.target.name === 'life_span_min' || e.target.name === 'name' ? e.target.value.trimStart() : parseInt(e.target.value)
+            [e.target.name]: e.target.name === 'life_span_max' || e.target.name === 'life_span_min' || e.target.name === 'name' ? e.target.value.trim() : parseInt(e.target.value)
         })
-        setError(validate({
-            ...input,
-            [e.target.name]: e.target.value
-        }))
+        setError(validate({ ...input, [e.target.name]: e.target.value }))
     };
 
     function handleSetBreed(e) {
         if (input.temperament.includes(e.target.value)) {
-            alert( `${e.target.value} had already been selected`);
-        } else {
-            setInput({
-                ...input,
-                temperament: [...input.temperament, e.target.value]
-            })
-            setError(validate({
-                ...input,
-                [e.target.name]: e.target.value
-            }))
+            alert(`${e.target.value} had already been selected`);
+        }
+        else {
+            setInput({ ...input, temperament: [...input.temperament, e.target.value] })
+            setError(validate({ ...input, [e.target.name]: e.target.value }))
         }
     };
 
@@ -67,19 +59,11 @@ export default function Create() {
     function handleSubmit(e) {
         e.preventDefault();
         if (input.temperament.length === 1) {
-            setInput({
-                ...input,
-                temperament: []
-            })
+            setInput({ ...input, temperament: [] })
         }
-
-        validate({ ...input, temperament: '' })
-
-        let desable = document.getElementById('del').disabled
-        if (desable === false) {
+        let active = document.getElementById('del').disabled
+        if (active === false) {
             dispatch(postBreed(input))
-            alert('Process Suscesfull')
-            window.location.reload()
             setInput({
                 name: '',
                 min_Height: '',
@@ -90,35 +74,20 @@ export default function Create() {
                 life_span_max: '',
                 temperament: []
             })
+            document.getElementById('form').reset();
+            alert('Process Suscesfull')
         }
     };
 
+
     function handleDelete(e) {
         if (input.temperament.length > 1) {
-            let droped = input.temperament.filter(x => x !== e)
-            setInput({
-                ...input,
-                temperament: droped,
-            })
-        } else {
+            let drop = input.temperament.filter(x => x !== e)
+            setInput({ ...input, temperament: drop })
+        }
+        else {
             document.getElementById('temp').value = (document.getElementById('as47d').value)
-            setInput({
-                ...input,
-                temperament: []
-            })
-            
-            setError({
-                ...input,
-                name: '',
-                min_Height: '',
-                max_Height: '',
-                min_Weight: '',
-                max_Weight: '',
-                life_span: '',
-                life_span_min: '',
-                life_span_max: '',
-                temperament: 'choose one or  more tempmperament please',
-            })
+            setInput({ ...input, temperament: [] })
         }
     };
 
@@ -128,23 +97,38 @@ export default function Create() {
 
 
     useEffect(() => {
+        dispatch(getBreeds())
         dispatch(getTemperaments())
     }, [dispatch])
 
 
     return (
         <div className={styles.container_create}>
-            <h1 >Create New Breed</h1>
+            <nav>
+                <div className={styles.h3}>
+                    <h2>Wellcome to Creator</h2>
+                </div>
+                <div className={styles.container_icon}>
+                    <Link to={'/Home'}>
+                        <i class="bi bi-house-fill" />
+                        <button>Home</button>
+                    </Link>
+                </div>
+            </nav>
 
             <div className={styles.main_create}>
-                <form onSubmit={(e) => handleSubmit(e)} className={styles.formy}>
+                <form  id='form' onSubmit={(e) => handleSubmit(e)} className={styles.formy}>
+
+
+
 
                     {/* ===================================================== NAME ================================================================================ */}
                     <div>
-                        <label>Name:  &nbsp;&nbsp;</label>
-                        <input type="text" name='name' onChange={e => handleSet(e)} placeholder='   name' />
+                        <label className={styles.name} >Name:  &nbsp;&nbsp;</label>
+                        <input className={styles.name3} type="text" name='name' onChange={(e) => handleSet(e)} placeholder='   name' />
                     </div>
                     {error.name && (<p className={styles.err}>{error.name}</p>)}
+                 
                     <br />
 
                     {/* ===================================================== MIN HEIGHT ================================================================================ */}
@@ -195,10 +179,10 @@ export default function Create() {
                     {/* ===================================================== Temperaments ================================================================================ */}
                     <label >Temperaments:   </label>
                     <div className={styles.temp}>
-                        <select id="temp" name="temperament" onChange={e => handleSetBreed(e)}>
+                        <select id="temp" name="temperament" onChange={e => handleSetBreed(e)} required={true}>
                             <option id='as47d' hidden={true} key={'as47d'} > -- select temperament -- </option>
                             {
-                                lisTemperaments?.map(e => (
+                                lisTemperaments2.map(e => (
                                     <option id='op' disabled={false} name={e.name} value={e.name} key={`1${e.name}`}>  {e.name}</option>
                                 ))
                             }
@@ -208,7 +192,7 @@ export default function Create() {
                     <br /> <div className={styles.temp5}>
                         {
                             input.temperament?.map(e =>
-                             
+
                                 <div className={styles.tempSsh}>
                                     {e}<h4>
                                         < option value={e} onClick={() => handleDelete(e)}> [ x ]  </option>
@@ -227,11 +211,7 @@ export default function Create() {
                 </form>
             </div>
             {/* ==========================================================button==Home================================================================================== */}
-            <div className={styles.btn_land}>
-                <Link to={'/Home'}>
-                    <button id="re">Home</button>
-                </Link>
-            </div>
+
         </div>
 
     )

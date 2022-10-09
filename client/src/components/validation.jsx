@@ -1,5 +1,5 @@
 export default function validate(input) {
-    console.log('validation___>', input);
+    console.log('validate-input___>', input);
     let errors = {};
 
     // campos vacios
@@ -18,7 +18,6 @@ export default function validate(input) {
     let mesagge7 = 'These field are required, please enter information'
 
 
-
     //__>Name
     if (/[!@#$%^&*(``)_+¡\-={};':"|,.<>?]/.test(input.name)) errors.name = mesagge2;
     if (input.name) {
@@ -28,6 +27,10 @@ export default function validate(input) {
         }
     }
     if (!input.name || input.name === null) errors.name = mesagge1;
+    // if (input.name) {
+    //     const ver = allDogs &&  allDogs.includes(input.name.toLowerCase())
+    //     if (ver === true) errors.name = 'ya existe';
+    // }
 
 
 
@@ -87,7 +90,7 @@ export default function validate(input) {
     //__>life
     if (!input.life_span_min || !input.life_span_max) errors.life_span = mesagge7;
     if (/[!@#$%^&*()_+¡\-={};':"|,.<>/?]+/.test(input.life_span_min) || /[!@#$%^&*()_+¡\-={};':"|,.<>/?]+/.test(input.life_span_max)) errors.life_span = mesagge2;
-    if (Number(input.life_span_min) > Number(input.life_span_max)) errors.life_span = 'min value should be less than max value';
+    if (Number(input.life_span_min) >= Number(input.life_span_max)) errors.life_span = 'min value should be less than max value';
 
     //__>temp
     if (!input.temperament.length || input.temperament.length < 1) errors.temperament = 'choose one or  more tempmperament please';

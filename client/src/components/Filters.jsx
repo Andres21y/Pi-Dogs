@@ -1,34 +1,38 @@
 import styles from '../styles/filters.module.css'
 import { Link } from 'react-router-dom'
-import { filterTemperament, orderName, orderWeight, orderBreeds } from '../redux/actions';
-export default function Filters({ temp, setCurrentPage, dispatch, setOrder }) {
-
-
+import { filterTemperament, orderName, orderWeight, orderBreeds, setState } from '../redux/actions';
+export default function Filters({ temp, setCurrentPage, dispatch, setOrder, currentBreed }) {
 
     const handleTemp = (e) => {
         e.preventDefault();
         dispatch(filterTemperament(e.target.value))
         setCurrentPage(1)
     }
-
+    
     const handleSort = (e) => {
         e.preventDefault();
+        dispatch(setState(currentBreed))
         dispatch(orderName(e.target.value));
-        setCurrentPage(1);
+         setCurrentPage(1);
         setOrder(`order ${e.target.value}`)
     }
-
+    
     const handleWeigth = (e) => {
         e.preventDefault();
+        dispatch(setState(currentBreed))
         dispatch(orderWeight(e.target.value));
         setCurrentPage(1);
         setOrder(`order ${e.target.value}`)
     }
     const handleBreeds = (e) => {
         e.preventDefault();
+        // dispatch(setState(currentBreed))
         dispatch(orderBreeds(e.target.value));
         setCurrentPage(1);
-        // setOrder(`order ${e.target.value}`)
+    }
+
+    const handleSet = () =>{
+        window.location.reload()
     }
 
     return (
@@ -58,21 +62,27 @@ export default function Filters({ temp, setCurrentPage, dispatch, setOrder }) {
             </div>
             <div className={styles.tem}>
                 {
-                    !temp ? <p>No Tem yet</p> :
+                    !temp.length ? <p>No Tem yet</p> :
                         <select onChange={e => handleTemp(e)}>
                             <option key={'Temperaments'} value='all'  >-- Temperaments --</option>
                             {
                                 temp.map(e => {
                                     return (
-                                        <option key={e} value={e}>{e}</option>
+                                        [
+
+                                            <option key={e} value={e}>{e}</option>
+                                        ]
                                     )
                                 })}
                         </select>
                 }
             </div>
             <div className={styles.create}>
+                   <button className={styles.btn_create} onClick={handleSet}>Clean Filter</button>
+            </div>
+            <div className={styles.create}>
                 <Link to={'/Create'}>
-                    <button className={styles.btn_create}>New Breed</button>
+                    <button className={styles.btn_create}>Create</button>
                 </Link>
             </div>
         </div>

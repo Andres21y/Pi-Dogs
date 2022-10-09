@@ -1,129 +1,204 @@
 .detail {
-    min-height: 700px;
-    background-image: url('../image/yofa_qw.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 900px;
+    width: 100%;
+    background: linear-gradient(#ffffff, #ffffff, #06649a);
+}
+
+nav {
+    background-color: rgb(79, 88, 128);
+    min-height: 55px;
+    height: 55px;
+    justify-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.h3 {
+    display: flex;
+    height: 40px;
+    min-width: 200px;
+    margin-top: 2px;
+    padding-top: 2px;
+    padding-left: 10px;
+    color: white;
+    text-shadow: rgb(12, 19, 19) 10px 1px 12px;
+}
+
+/* ----------- BTN -----------*/
+
+.btn_container {
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding-top: 14px;
+}
+
+.btn_home_d {
+    border: none;
+    outline: none;
+    height: 35px;
+    width: 100px;
+}
+
+.btn_home_d button {
+    border: none;
+    outline: none;
+    height: 35px;
+    width: 100px;
+    color: white;
+    background: transparent;
+}
+
+.btn_create {
+    background: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    height: 35px;
+    width: 100px;
+}
+
+.btn_home_d i {
+    color: greenyellow;
+    font-size: 20px;
+}
+
+.btn_create i {
+    color: greenyellow;
+    font-size: 20px;
+}
+
+.btn_home_d :hover {
+    background: transparent;
+    text-decoration: aqua underline;
+    text-shadow: aqua 12px 12px 12px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.282);
+    border: none;
+    outline: none;
+}
+
+.btn_create:hover {
+    background: transparent;
+    text-decoration: aqua underline;
+    text-shadow: aqua 12px 12px 12px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.282);
 }
 
 .card_container {
     display: flex;
     justify-content: center;
+    margin-top: 4em;
 }
-
-.detail h1 {
-    margin-top: 0;
-    padding: 0;
-    padding-bottom: 20px;
-}
-
 
 .container_de {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 25px;
 }
 
+.card_iw img {
+    border: 0.5px solid;
+    border-radius: 12px;
+    width: 350px;
+    height: 350px;
+}
 
-.name {
-    display: flex;
-    justify-content: center;
-    background: rgba(13, 226, 173, 0.363);
-    backdrop-filter: blur(22px);
-    display: flex;
-    align-items: center;
+.named {
     height: 45px;
     min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    border: lightblue 1px solid;
+    background: rgba(0, 0, 0, 0.361);
+    backdrop-filter: blur(22px);
     border-radius: 12px;
-    margin-top: 4em;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.name h2 {
-    color: aqua;
-    display: inline-block;
-}
-
-.temp {
-    background: linear-gradient(#928267, #998c13, #77a4be);
-    background-size: cover;
-    width: 350px;
-    min-height: 300px;
-    padding-top: 25px;
-    padding-left: 15px;
-    padding-bottom: 15px;
-    border-radius: 12px;
-    color: rgb(0, 0, 0);
-    box-shadow: rgb(2, 2, 2) 12px 12px 12px;
-}
-
-.temp code {
-    color: rgb(0, 0, 0);
 }
 
 .container_det {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 315px;
+    color: rgb(255, 255, 255);
     gap: 25px;
-    padding-right: 15px;
 }
 
-.temp1 {
+.temp {
+    background: rgba(13, 23, 161, 0.76);
+    width: 300px;
+    min-height: 300px;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 12px;
+    box-shadow: rgb(2, 2, 2) 12px 12px 12px;
+}
+
+.temp h4 {
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+}
+
+.temperaments_o {
+    padding-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
-    padding-left: 15px;
-    margin-left: 10px;
-    justify-content: center;
-    gap: 10px;
+}
+
+.temp code {
+    color: rgb(255, 255, 255);
 }
 
 
-.card_iw img {
-    border-radius: 12px;
-    width: 400px;
-    height: 380px;
-    background: #405540;
+@media screen and (max-width: 600px) {
+    .detail {
+        width: 100%;
+        background: #06649a;
+    }
 
-}
+    nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+    }
 
-.card_tem h4 {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
+    .h3 {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
 
-.btn_container {
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
-    padding-top: 55px;
-    padding-bottom: 30px;
-}
+    .container_de {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.btn_land {
-    display: flex;
-    height: 35px;
-    width: 200px;
-    border-radius: 12px;
-    margin-top: 100px;
-    padding-left: 35px;
-    margin-left: 5px;
-}
+    .temp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        background: #4a98c5;
+    }
 
-.btn_land button {
-    height: 35px;
-    width: 200px;
-    cursor: pointer;
-    border-radius: 12px;
-    background: -webkit-linear-gradient(left top, rgb(135, 141, 241), rgb(253, 176, 9));
-    border: none;
-    margin-top: px;
-}
+    .cardw {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-.btn_land button:hover {
-    box-shadow: rgb(0, 0, 0) 5px 5px 15px;
-    border: lightblue 1px solid;
-    transition: 1s;
+    .card_iw img {
+        width: 240px;
+        height: 200px;
+    }
+
+    .named {
+        width: 80%;
+    }
 }
