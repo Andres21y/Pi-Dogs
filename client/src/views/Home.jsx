@@ -49,7 +49,7 @@ export default function Home() {
         <div className={styles.home_container}>
             <nav className={styles.ban}>
                 <div className={styles.h3}>
-                    <h3>My Breeds App</h3>
+                    <h3> Dog Breeds App</h3>
                 </div>
                 <div className={styles.search}> <SearchBar setCurrentPage={setCurrentPage} dispatch={dispatch} /> </div>
             </nav>

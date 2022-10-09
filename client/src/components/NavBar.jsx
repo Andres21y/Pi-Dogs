@@ -6,7 +6,7 @@ export default function NavBar() {
     return (
         <>
             <nav className={style.nav_main}>
-                <h2>WellCome to My Breeds App</h2>
+                <h2>WellCome to Dog Breeds App</h2>
                 <div className={style.btn_contai}>
                     <Link to={'/Home'} >
                         <button><i class="bi bi-house-fill" />&nbsp;Home</button>
