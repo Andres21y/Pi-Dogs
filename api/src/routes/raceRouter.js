@@ -1,6 +1,5 @@
-const { Router } =  require('express')
+const router =  require('express').Router()
 const {getInfo, getInfoId, createRace} = require('../routerControllers/raceControllers')
-const router = Router()
 
 router.get('/', getInfo)
 

@@ -27,11 +27,11 @@ export default function Card(props) {
                                 <span className={s.click}>
                                     click me!
                                 </span><br />
+                            </p>
                                 <span>
                                     to see more  details
                                 </span>
                                 <h2>{props.name}</h2>
-                            </p>
                         </div>
                     </Link>
                     <div className={s.front}>

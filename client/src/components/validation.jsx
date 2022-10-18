@@ -1,5 +1,4 @@
 export default function validate(input) {
-    console.log('validate-input___>', input);
     let errors = {};
 
     // campos vacios
