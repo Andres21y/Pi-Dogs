@@ -6,7 +6,6 @@ const { allInfo } = require('../genarator')
 
 const getInfo = async (req, res, next) => {
     const { name } = req.query
-    //console.log('name',name);
     const allDogs = await allInfo()
     try {
         if (!name) {
@@ -23,8 +22,6 @@ const getInfo = async (req, res, next) => {
 
 const getInfoId = async (req, res, next) => {
     const { id } = req.params
-    //console.log('-___>',id);
-    //console.log('d',id);
     try {
         const allDogs = await allInfo()
         if (!id) {
@@ -66,8 +63,6 @@ const createRace = async (req, res, next) => {
                 }
             })
 
-            console.log('=/>', verify);
-
             if (verify) {
                 res.json({ message: 'this dog has alredy been create' })
             } else {
@@ -95,9 +90,6 @@ const createRace = async (req, res, next) => {
     }
 
 }
-
-
-
 
 module.exports = {
     getInfo,

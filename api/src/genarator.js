@@ -2,10 +2,6 @@ const axios = require('axios')
 const { Breed, Temperament } = require('./db')
 const { API_BREEDS } = process.env;
 
-
-
-//console.log(`${API_BREEDS }?api_key=${API_KEY}`);
-
 const apiInfo = async () => {
     try {
         let apiUrl = await axios.get(`${API_BREEDS}`)

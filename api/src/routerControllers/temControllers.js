@@ -23,7 +23,6 @@ const getTemp = async (req, res, next)=>{
 }
 
 
-
 module.exports = {
     getTemp
 }
