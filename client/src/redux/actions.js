@@ -25,7 +25,6 @@ export const getBreeds = () => {
 }
 
 export const resetDetail = () => {
-    console.log('llegue');
             return ({
                 type: GET_DETAILS,
                 payload:{}
@@ -88,7 +87,6 @@ export const postBreed = (payload) => {
 }
 
 export const getDetails = (id) => {
-    console.log('id-actions_>', id);
     return async function (dispatch) {
         try {
             let info = await axios.get(`/api/dogs/${id}`)
