@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "start",
-    "run build": "react-scripts build",
+    "run build": "build",
     "test": "test",
     "eject": "eject"
   },
