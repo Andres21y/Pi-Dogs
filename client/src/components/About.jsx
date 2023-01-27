@@ -13,7 +13,7 @@ export default function About() {
                 </span><br />
                 <span>
                     I am a web developer passionate about technology, <br /> focused on mastering the JavaScript programming language,
-                    among others
+                    among others.
                 </span>
 
             </p>

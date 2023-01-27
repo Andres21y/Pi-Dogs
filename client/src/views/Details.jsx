@@ -3,23 +3,20 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getDetails, resetDetail } from '../redux/actions';
 import styles from '../styles/details.module.css';
-
 import balto from '../image/balto.jpg'
 import dog from '../image/black-dog.png'
 import blue from '../image/dog-blue.jpg'
 import illustration from '../image/illustration.jpg'
 import Loading from "../components/Loading";
-import logi from '../image/227.jpg'
+
 
 export default function Details() {
 
     let { id } = useParams(state => state.details);
-    // console.log('id.details--->', id);
 
     let dispatch = useDispatch()
 
     const details = useSelector(state => state.details)
-     console.log('soy el details', details);
 
     useEffect(() => {
         dispatch(getDetails(id))
@@ -68,11 +65,6 @@ export default function Details() {
         }
     }
 
-    // const time = setTimeout(message, 5000);
-
-    // function message(){
-    //  document.getElementById('pirulo').innerHTML='Please wait'
-    // }
     const dbImage = [balto, dog, blue, illustration]
     let random = Math.floor(Math.random() * dbImage.length)
 
@@ -104,7 +96,7 @@ export default function Details() {
                                     <div className={styles.card_iw}>
                                         <img src={details.image ? details.image : dbImage[random]} alt='no igame now' />
                                     </div>
-                                    <div className={styles.named}>
+                                    <div className={styles.card_name}>
                                         <h2>{details.name}</h2>
                                     </div>
                                 </div>

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { getBreedsName } from "../redux/actions";
 import styles from '../styles/search.module.css'
 
-export default function SearchBar({ setCurrentPage, dispatch }) {
+export default function SearchBar({ cart, dispatch, setCurrentPage }) {
 
     const [name, setName] = useState('');
-    console.log('==>', name);
+   
     const handleState = (e) => {
         e.preventDefault();
         setName(e.target.value)
@@ -15,7 +15,6 @@ export default function SearchBar({ setCurrentPage, dispatch }) {
         e.preventDefault()
         const letter = new RegExp('^[A-Z]+$', 'i');
         const pattern = new RegExp(/[!@#$%^&*()_+¡\-={};':"|,.<>?]+/);
-
 
         if (pattern.test(name)) {
             alert('special characters are not allowed')
@@ -38,16 +37,11 @@ export default function SearchBar({ setCurrentPage, dispatch }) {
         <div className={styles.search_container}>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className={styles.search}>
-                    <i class="bi bi-search" />
                     <input type="search" onChange={(e) => handleState(e)} placeholder='  search...'/>
+                    <i class="bi bi-search" />
                 </div>
             </form>
         </div>
     )
 }
 
-
-/**NOTA
- * validar number
- * LIMPIAR LA ENTRADA
- */

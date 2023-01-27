@@ -18,8 +18,6 @@ const initialState = {
 }
 
 export default function rootReducer(state = initialState, action) {
-    console.log('type and payload__>', action);
-
     switch (action.type) {
         case GET_BREEDS:
             return {
@@ -93,12 +91,14 @@ export default function rootReducer(state = initialState, action) {
             let infoDb = statebr.filter(e => {
                 if (e.hasOwnProperty('created')) {
                     let temper = e.temperaments.map(e => e.name)
-                    return temper.includes(action.payload); 
+                    return temper.includes(action.payload);
 
                 }
             })
 
-            let infoApi = statebr.filter(e => e.temperaments !== null && e.temperaments.includes(` ${action.payload}`) === true && e || e.temperaments !== null && e.temperaments.includes(action.payload) === true && e)
+            let infoApi = statebr.filter(e => e.temperaments !== null && e.temperaments
+                .includes(` ${action.payload}`) === true && e || e.temperaments !== null
+                && e.temperaments.includes(action.payload) === true && e)
 
             const data = [...infoApi, ...infoDb]
 
@@ -106,10 +106,10 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 stateBreeds: data
             }
-           case SET_STATE:
-            return{
+        case SET_STATE:
+            return {
                 ...state,
-                allBreeds:action.payload
+                allBreeds: action.payload
             }
 
         default:

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postBreed, getTemperaments, getBreeds } from "../redux/actions";
 import validate from '../components/validation';
 import styles from '../styles/create.module.css';
-import logi from '../image/227.jpg';
+
 
 export default function Create() {
 
@@ -104,34 +104,31 @@ export default function Create() {
 
     return (
         <div className={styles.container_create}>
-            <nav>
-                <div className={styles.h3}>
-                    <h2>Wellcome to Creator</h2>
-                </div>
-                <div className={styles.container_icon}>
-                    <Link to={'/Home'}>
-                        <i class="bi bi-house-fill" />
-                        <button>Home</button>
-                    </Link>
-                </div>
-            </nav>
+            <div className={styles.container_nav_create}>
+                <nav>
+                    <div className={styles.h3}>
+                        <h2>Wellcome to Creator</h2>
+                    </div>
+                    <div className={styles.container_icon}>
+                        <Link to={'/Home'}>
+                            <i class="bi bi-house-fill" />
+                            <button>Home</button>
+                        </Link>
+                    </div>
+                </nav>
+            </div>
 
             <div className={styles.main_create}>
-                <form  id='form' onSubmit={(e) => handleSubmit(e)} className={styles.formy}>
+                <form id='form' onSubmit={(e) => handleSubmit(e)} className={styles.formy}>
 
-
-
-
-                    {/* ===================================================== NAME ================================================================================ */}
                     <div>
                         <label className={styles.name} >Name:  &nbsp;&nbsp;</label>
                         <input className={styles.name3} type="text" name='name' onChange={(e) => handleSet(e)} placeholder='   name' />
                     </div>
                     {error.name && (<p className={styles.err}>{error.name}</p>)}
-                 
+
                     <br />
 
-                    {/* ===================================================== MIN HEIGHT ================================================================================ */}
                     <div className={styles.height}>
                         <label htmlFor="">Min Height:&nbsp;</label>
                         <input name="min_Height" placeholder="   min" type="text" onChange={e => handleSet(e)} />&nbsp;&nbsp;<code>cm</code>
@@ -139,16 +136,12 @@ export default function Create() {
                     {error.min_Height && (<p className={styles.err}>{error.min_Height}</p>)}
                     <br />
 
-
-                    {/* ===================================================== MAX HEIGHT ================================================================================ */}
                     <div className={styles.height}>
                         <label htmlFor="">Max Height:&nbsp;</label>
                         <input name="max_Height" placeholder="   max" type="text" onChange={e => handleSet(e)} />&nbsp;&nbsp;<code>cm</code>
                     </div>
                     {error.max_Height && (<p className={styles.err}>{error.max_Height}</p>)}
                     <br />
-
-                    {/* ===================================================== MIN Weight: ================================================================================ */}
 
                     <div className={styles.Weight}>
                         <label htmlFor="">Min Weight:  </label>
@@ -157,7 +150,6 @@ export default function Create() {
                     {error.min_Weight && (<p className={styles.err}>{error.min_Weight}</p>)}
                     <br />
 
-                    {/* ===================================================== Max Weight: ================================================================================ */}
 
                     <div className={styles.Weight}>
                         <label htmlFor="">Max Weight:  </label>
@@ -165,8 +157,6 @@ export default function Create() {
                     </div>
                     {error.max_Weight && (<p className={styles.err}>{error.max_Weight}</p>)}
                     <br />
-
-                    {/* ===================================================== LIFE ================================================================================ */}
 
                     <div className={styles.life_span2} >
                         <label htmlFor=""> Life Span:</label>
@@ -176,7 +166,6 @@ export default function Create() {
                     {error.life_span && (<p className={styles.err}>{error.life_span}</p>)}
                     <br />
 
-                    {/* ===================================================== Temperaments ================================================================================ */}
                     <label >Temperaments:   </label>
                     <div className={styles.temp}>
                         <select id="temp" name="temperament" onChange={e => handleSetBreed(e)} required={true}>
@@ -203,14 +192,13 @@ export default function Create() {
 
                         }
                     </div>
-                    {/* ==========================================================button==Create================================================================================== */}
+
                     <div className={styles.create} >
                         <button type="reset">Reset</button>
                         <button id="del" type="submit" disabled={data} >Create</button>
                     </div>
                 </form>
             </div>
-            {/* ==========================================================button==Home================================================================================== */}
 
         </div>
 

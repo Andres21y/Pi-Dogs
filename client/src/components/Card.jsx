@@ -11,10 +11,7 @@ export default function Card(props) {
             if (e.hasOwnProperty('name')) return e.name
             else { return (e) }
         })
-
-
         return data
-
     }
 
     return (
@@ -28,10 +25,10 @@ export default function Card(props) {
                                     click me!
                                 </span><br />
                             </p>
-                                <span>
-                                    to see more  details
-                                </span>
-                                <h2>{props.name}</h2>
+                            <span>
+                                to see more  details
+                            </span>
+                            <h2>{props.name}</h2>
                         </div>
                     </Link>
                     <div className={s.front}>
@@ -56,12 +53,7 @@ export default function Card(props) {
                                             </h4>
                                     }
                                 </span>
-                                {/* <div>
-                                    <h4>Weight
-                                        <span>&nbsp;&nbsp;&nbsp;<b>-</b>&nbsp;<code>{props.min_Weight} kg</code></span>&nbsp;&nbsp;&nbsp;
-                                        <span>&nbsp;&nbsp;&nbsp;<b>+</b>&nbsp;<code>{props.max_Weight} kg</code></span>
-                                    </h4>
-                                </div> */}
+                                
                                 <div className={s.cont_op}>
                                     <h4>Temperaments:    </h4>
                                     {

@@ -1,8 +1,16 @@
-.filter_main {
+.filter_main_content {
+    width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.filter_main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
-    width: 100%;
+    width: 90%;
+    max-width: 1190px;
 }
 
 .filter_main select {
@@ -11,9 +19,11 @@
     width: 130px;
     background-color: rgba(79, 88, 128, 0.69);
     transition: 1s;
+    color: #fff;
 }
 
 .create button {
+    color: #fff;
     height: 25px;
     border-radius: 5px;
     width: 130px;
@@ -30,8 +40,14 @@
     .filter_main {
         width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        margin-top: 25px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .filter_main select{
+        width: 200px;
+    }
+    .create button{
+        width: 200px;
     }
 
 }

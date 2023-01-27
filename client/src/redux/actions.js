@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 export const GET_BREEDS = 'GET_BREEDS';
 export const GET_BREEDS_NAME = 'GET_BREEDS_NAME';
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
@@ -25,7 +24,6 @@ export const getBreeds = () => {
     }
 }
 
-
 export const resetDetail = () => {
     console.log('llegue');
             return ({
@@ -34,7 +32,6 @@ export const resetDetail = () => {
             })
 }
 
-//=====================================================================================================================
 export const getBreedsName = (name) => {
     return async function (dispatch) {
         try {
@@ -48,7 +45,7 @@ export const getBreedsName = (name) => {
         }
     }
 }
-//========================================setState==========================================
+
 export const setState = (payload) => {
     return async function (dispatch) {
         try {
@@ -61,7 +58,7 @@ export const setState = (payload) => {
         }
     }
 }
-//=====================================================================================================================  
+  
 export const getTemperaments = () => {
     return async function (dispatch) {
         try {
@@ -75,7 +72,6 @@ export const getTemperaments = () => {
         }
     }
 }
-//=====================================================================================================================
 
 export const postBreed = (payload) => {
     return async function (dispatch) {
@@ -90,8 +86,6 @@ export const postBreed = (payload) => {
         }
     }
 }
-
-//=====================================================================================================================
 
 export const getDetails = (id) => {
     console.log('id-actions_>', id);
@@ -108,8 +102,6 @@ export const getDetails = (id) => {
     }
 }
 
-
-//=======================================================================
 export const filterTemperament = (payload) => {
     return async function (dispatch){
         return dispatch({
@@ -119,14 +111,12 @@ export const filterTemperament = (payload) => {
     }
 }
 
-//=========================================================================================================
 export function orderName(payload){
     return{
         type:ORDER_BY_NAME,
         payload
     }
 }
-//=========================================================================================================
 
 export function orderWeight(payload){
     return{
@@ -134,7 +124,7 @@ export function orderWeight(payload){
         payload
     }
 }
-//=========================================================================================================
+
 export function orderBreeds(payload){
     return{
         type:ORDER_BY_BREEDS,

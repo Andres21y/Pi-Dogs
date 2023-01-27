@@ -26,12 +26,6 @@ export default function validate(input) {
         }
     }
     if (!input.name || input.name === null) errors.name = mesagge1;
-    // if (input.name) {
-    //     const ver = allDogs &&  allDogs.includes(input.name.toLowerCase())
-    //     if (ver === true) errors.name = 'ya existe';
-    // }
-
-
 
     //__>min h
     if (!input.min_Height) errors.min_Height = `${mesagge1}`;
@@ -44,10 +38,7 @@ export default function validate(input) {
     }
     if (/[!@#$%^&*()_+¡\-={};':"|,.<>?]+/.test(input.min_Height)) errors.min_Height = `${mesagge2}`;
     if (parseInt(input.min_Height) > parseInt(input.max_Height)) errors.min_Height = `${mesagge5} max height`
-    // console.log('--num',input.min_Height);
-
-
-
+   
     //__>max h
     if (!input.max_Height) errors.max_Height = ` ${mesagge1}`;
     if (input.max_Height) {

@@ -4,15 +4,6 @@
 }
 
 /*==================NAV BAR=======================*/
-nav {
-    background-color: rgb(79, 88, 128);
-    min-height: 55px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
-    padding-left: 10px;
-}
 
 .h3 {
     display: flex;
@@ -27,10 +18,17 @@ nav {
 
 .container_create {
     background: linear-gradient( #06649a, #ffffff, #06649a);
-    min-height: 750px;
+    min-height: 100vh;
     width: 100%;
 }
 
+nav {
+
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+
+}
 
 .main_create {
     display: flex;

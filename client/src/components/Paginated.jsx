@@ -25,14 +25,19 @@ export default function Paginated({ allBreeds, breedPage, upDater, currentPage, 
         }
     }
     return (
-        <div>
+        <div className={styles.pg_container_content}>
+            <div className={styles.none}>
+                <button className={styles.prev} name="prev"  id="prev"   disabled={currentPage === 1 ? true : false} onClick={handleChange}>prev</button>
+                <button className={styles.prev} name="next" id="next" disabled={currentPage === pages.length ? true : false} onClick={handleChange}>next</button>
+            </div>
+         
             <div className={styles.container_P}>
                 <ul >
                 <button className={styles.prev} name="prev"  id="prev"   disabled={currentPage === 1 ? true : false} onClick={handleChange}>prev</button>
                     {
                         pages.length && pages.map(num => {
                             return (
-                                <button key={num} className={currentPage === num && styles.btn_point} onClick={() => upDater(num)} >{num}</button>
+                                <button  key={num} className={currentPage === num && styles.btn_point} onClick={() => upDater(num)} >{num}</button>
                             )
                         })
                     }

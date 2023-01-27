@@ -1,23 +1,25 @@
-
+.search_container{
+  width: 100%;
+  padding-right: 2rem;
+}
 .search{
+  position: relative;
   background-color: rgb(79, 88, 128);
-  width: 200px;
+  width: 300px;
   height: 28px;
   display: flex;
   align-items: center;
-  padding-left: 10px;
-  margin-right: 25px;
-  gap: 5px;
   font-size: 25px;
   border-radius: 10px;
   color: black;
   border: rgb(54, 54, 255) 2px solid;
-  box-shadow: white 1px 1px 10px;
+  box-shadow: white 1px 1px 12px;
 }
 
 .search i{
   font-size: 15px;
   color:rgb(0, 255, 60);
+margin-right: 1rem;
 }
 
 .search input{
@@ -39,6 +41,7 @@ color: rgb(255, 0, 0);
   width: 60px;
 }
 .search{
-  width:170px;
+  width:100%;
+  border-radius:none;
 }
   }
