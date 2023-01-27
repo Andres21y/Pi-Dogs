@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "start",
-    "build": "build",
+    "build": "run build",
     "test": "test",
     "eject": "eject"
   },
