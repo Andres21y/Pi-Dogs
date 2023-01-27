@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getDetails, resetDetail } from '../redux/actions';
 import styles from '../styles/details.module.css';
-import balto from '../image/balto.jpg'
-import dog from '../image/black-dog.png'
-import blue from '../image/dog-blue.jpg'
-import illustration from '../image/illustration.jpg'
+import balto from '../assets/img/balto.jpg'
+import dog from '../assets/img/black-dog.png'
+import blue from '../assets/img/dog-blue.jpg'
+import illustration from '../assets/img/illustration.jpg'
 import Loading from "../components/Loading";
 
 

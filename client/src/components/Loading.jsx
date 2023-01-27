@@ -1,6 +1,6 @@
 import React from "react";
 import styles from '../styles/loading.module.css'
-import image from '../image/227.jpg'
+import image from '../assets/img/227.jpg'
 export default function Loading() {
 
     return (

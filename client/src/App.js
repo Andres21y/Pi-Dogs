@@ -5,7 +5,8 @@ import Home from './views/Home'
 import Create from './views/Create'
 import Details from './views/Details'
 import About from "./components/About";
-
+import axios from "axios";
+axios.defaults.baseURL ="http://localhost:3001/"
 
 export default function App() {
   return (

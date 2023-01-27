@@ -4,7 +4,7 @@
 } */
 
 .container_landing {
-   background-image: url(../image/doggi.png);
+   background-image: url(../assets/img/doggi.png);
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
@@ -43,7 +43,7 @@
     height: 90px;
     width: 30%;
     height: 5rem;
-    background: url(../image/landing.png);
+   /* background: url(../assets/img/);*/
 }
 
 @media screen and (max-width: 600px) {

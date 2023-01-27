@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from '../styles/card.module.css'
-import g from '../image/rock.png'
+import g from '../assets/img/rock.png'
 
 export default function Card(props) {
     let temp = props.temperaments ? props.temperaments : [];

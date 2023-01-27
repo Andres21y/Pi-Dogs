@@ -13,7 +13,7 @@ export const SET_STATE = 'SET_STATE';
 export const getBreeds = () => {
     return async function (dispatch) {
         try {
-            let info = await axios.get('http://localhost:3001/api/dogs')
+            let info = await axios.get('/api/dogs')
             return dispatch({
                 type: GET_BREEDS,
                 payload: info.data
@@ -35,7 +35,7 @@ export const resetDetail = () => {
 export const getBreedsName = (name) => {
     return async function (dispatch) {
         try {
-            let info = await axios.get(`http://localhost:3001/api/dogs/?name=${name}`)
+            let info = await axios.get(`/api/dogs/?name=${name}`)
             return dispatch({
                 type: GET_BREEDS,
                 payload: info.data
@@ -62,7 +62,7 @@ export const setState = (payload) => {
 export const getTemperaments = () => {
     return async function (dispatch) {
         try {
-            let info = await axios.get(`http://localhost:3001/api/temperaments`)
+            let info = await axios.get(`/api/temperaments`)
             return dispatch({
                 type: GET_TEMPERAMENTS,
                 payload: info.data
@@ -76,7 +76,7 @@ export const getTemperaments = () => {
 export const postBreed = (payload) => {
     return async function (dispatch) {
         try {
-         await axios.post(`http://localhost:3001/api/dogs`, payload) 
+         await axios.post(`/api/dogs`, payload) 
          return dispatch({
             type:'',
             payload
@@ -91,7 +91,7 @@ export const getDetails = (id) => {
     console.log('id-actions_>', id);
     return async function (dispatch) {
         try {
-            let info = await axios.get(`http://localhost:3001/api/dogs/${id}`)
+            let info = await axios.get(`/api/dogs/${id}`)
             return dispatch({
                 type: GET_DETAILS,
                 payload: info.data
