@@ -6,7 +6,7 @@ import Create from './views/Create'
 import Details from './views/Details'
 import About from "./components/About";
 import axios from "axios";
-axios.defaults.baseURL ="http://localhost:3001/"
+axios.defaults.baseURL ="https://dog-appi-production.up.railway.app/"
 
 export default function App() {
   return (

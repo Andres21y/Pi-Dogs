@@ -10,6 +10,10 @@
     min-height: 100vh;
 }
 
+h1 .logi{
+    background-image: url(../assets/img/doggi.png);
+}
+
 .container_greet{
     z-index: 999;
     position: absolute;

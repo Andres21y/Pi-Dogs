@@ -7,8 +7,8 @@ export default function Loading() {
         <div className={styles.main_load}>
             <div className={styles.loading}>
                 <div id="percent" className={styles.loader}>
-                <img src={image} alt="gif" />
                 </div>
+                <img src={image} alt="gif" />
             </div>
             <span> Loading . . .</span>
         </div>

@@ -20,6 +20,7 @@ const initialState = {
 export default function rootReducer(state = initialState, action) {
     switch (action.type) {
         case GET_BREEDS:
+            console.log(action.payload);
             return {
                 ...state,
                 allBreeds: action.payload,

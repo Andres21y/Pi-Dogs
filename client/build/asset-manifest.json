@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.514ca007.chunk.css",
+    "main.js": "/static/js/main.c3446c3e.chunk.js",
+    "main.js.map": "/static/js/main.c3446c3e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d4337050.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d4337050.js.map",
+    "static/js/2.1b46a5be.chunk.js": "/static/js/2.1b46a5be.chunk.js",
+    "static/js/2.1b46a5be.chunk.js.map": "/static/js/2.1b46a5be.chunk.js.map",
+    "static/js/3.fd80b954.chunk.js": "/static/js/3.fd80b954.chunk.js",
+    "static/js/3.fd80b954.chunk.js.map": "/static/js/3.fd80b954.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.514ca007.chunk.css.map": "/static/css/main.514ca007.chunk.css.map",
+    "static/js/2.1b46a5be.chunk.js.LICENSE.txt": "/static/js/2.1b46a5be.chunk.js.LICENSE.txt",
+    "static/media/227.3004c142.jpg": "/static/media/227.3004c142.jpg",
+    "static/media/balto.a04a0215.jpg": "/static/media/balto.a04a0215.jpg",
+    "static/media/black-dog.293650bf.png": "/static/media/black-dog.293650bf.png",
+    "static/media/dog-blue.f864c406.jpg": "/static/media/dog-blue.f864c406.jpg",
+    "static/media/landing.module.css": "/static/media/doggi.d1bb23e9.png",
+    "static/media/illustration.441a4a7c.jpg": "/static/media/illustration.441a4a7c.jpg",
+    "static/media/rock.3fc87c50.png": "/static/media/rock.3fc87c50.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d4337050.js",
+    "static/js/2.1b46a5be.chunk.js",
+    "static/css/main.514ca007.chunk.css",
+    "static/js/main.c3446c3e.chunk.js"
+  ]
+}

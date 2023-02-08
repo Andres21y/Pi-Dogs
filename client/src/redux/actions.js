@@ -14,6 +14,7 @@ export const getBreeds = () => {
     return async function (dispatch) {
         try {
             let info = await axios.get('/api/dogs')
+            console.log("info===>", info);
             return dispatch({
                 type: GET_BREEDS,
                 payload: info.data
@@ -25,16 +26,17 @@ export const getBreeds = () => {
 }
 
 export const resetDetail = () => {
-            return ({
-                type: GET_DETAILS,
-                payload:{}
-            })
+    return ({
+        type: GET_DETAILS,
+        payload: {}
+    })
 }
 
 export const getBreedsName = (name) => {
     return async function (dispatch) {
         try {
             let info = await axios.get(`/api/dogs/?name=${name}`)
+            console.log("info===>", info);
             return dispatch({
                 type: GET_BREEDS,
                 payload: info.data
@@ -57,11 +59,12 @@ export const setState = (payload) => {
         }
     }
 }
-  
+
 export const getTemperaments = () => {
     return async function (dispatch) {
         try {
             let info = await axios.get(`/api/temperaments`)
+            console.log("info===>", info);
             return dispatch({
                 type: GET_TEMPERAMENTS,
                 payload: info.data
@@ -75,13 +78,13 @@ export const getTemperaments = () => {
 export const postBreed = (payload) => {
     return async function (dispatch) {
         try {
-         await axios.post(`/api/dogs`, payload) 
-         return dispatch({
-            type:'',
-            payload
-         })
+            await axios.post(`/api/dogs`, payload)
+            return dispatch({
+                type: '',
+                payload
+            })
         } catch (error) {
-            
+
         }
     }
 }
@@ -101,7 +104,7 @@ export const getDetails = (id) => {
 }
 
 export const filterTemperament = (payload) => {
-    return async function (dispatch){
+    return async function (dispatch) {
         return dispatch({
             type: FILTER_TEMP,
             payload
@@ -109,23 +112,23 @@ export const filterTemperament = (payload) => {
     }
 }
 
-export function orderName(payload){
-    return{
-        type:ORDER_BY_NAME,
+export function orderName(payload) {
+    return {
+        type: ORDER_BY_NAME,
         payload
     }
 }
 
-export function orderWeight(payload){
-    return{
-        type:ORDER_BY_WEIGHT,
+export function orderWeight(payload) {
+    return {
+        type: ORDER_BY_WEIGHT,
         payload
     }
 }
 
-export function orderBreeds(payload){
-    return{
-        type:ORDER_BY_BREEDS,
+export function orderBreeds(payload) {
+    return {
+        type: ORDER_BY_BREEDS,
         payload
     }
 }
